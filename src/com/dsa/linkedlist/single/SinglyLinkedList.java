@@ -209,15 +209,192 @@ public class SinglyLinkedList {
 	 * next to it.
 	 */
 	public void printReverse() {
-		reverse(head);
+		reverseInternal(head);
 	}
 	
-	private void reverse(Node node) {
+	private void reverseInternal(Node node) {
 		if(node == null)
 			return;
 		else {
-			reverse(node.getNext());
+			reverseInternal(node.getNext());
 			System.out.println(node.getData());
 		}
 	}
+	
+	/**
+	 * Handle the following conditions
+	 * 	1. List is empty
+	 * 	2. List has one node
+	 * 	3. Otherwise, create three references
+	 * 			a) previous - at head
+	 * 			b) current - head.getNext()
+	 * 			c) next - head.getNext().getNext()
+	 * 	4. Handle size 2: If next == null; current = head; current.setNext(previous); previous.setNext(null)
+	 * 	5. Repeat below steps till next != null 
+	 * 			a) current.setNext(previous)
+	 * 			b) previous = current
+	 * 			c) current =  next
+	 */
+	public void  reverse() {
+		// List is empty
+		if(head == null) {
+			System.out.println("List is empty");
+		}
+		
+		else if(head.getNext()  == null)
+			return;
+		else {
+			Node previous = head;
+			Node current  = head.getNext();
+			Node next = head.getNext().getNext();
+			
+			if(next == null) {
+				current = head;
+				current.setNext(previous);
+				previous.setNext(null);
+				return;
+			}
+			
+			else {
+				previous.setNext(null);
+				while(current != null) {
+					current.setNext(previous);
+					head = current;
+					previous = current;
+					current = next;
+					if(next != null)
+						next = next.getNext();		
+				}
+			}		
+		}
+	}
+	
+	// Runner Technique
+	public void changeSequenceFromMiddle() {
+		/**
+		 * Handle below cases
+		 * 	1. If  list is  empty
+		 * 	2. If list has size <=3, return
+		 * 	3. If list size is 4 or above:
+		 * 		a) Two nodes: fast and slow: fast moves in 2X and slow moves in 1X
+		 * 		b) When  fast==null || fast.next == null, slow is in  middle
+		 * 		c) Set fast to head
+		 * 		d) Two nodes: fNext  = fast.next and  sNext = slow.next
+		 * 		e) While slow.next != null,
+		 * 			i)fast.next  = slow; fast.next.next = fNext; fast = fast.next.next; slow = slow.next 
+		 */
+		
+		if(head == null) {
+			System.out.println("Linked list is empty");
+			return;
+		}
+		if(size <= 3)
+			return;
+		else {
+			Node fast = head;
+			Node slow = head;
+			
+			while(fast != null && fast.getNext()!= null) {
+				fast = fast.getNext().getNext();
+				slow = slow.getNext();
+			}
+			
+			fast = head;
+			
+			while(slow.getNext().getNext()  != null) {
+				Node temp = fast.getNext();
+				temp.setNext(null);
+				fast.setNext(slow);
+				slow = slow.getNext();
+				fast.getNext().setNext(temp);
+				fast = fast.getNext().getNext();
+			}
+		}
+	}
+	
+	public void deleteAllOccurences(int data) {
+		/**
+		 * Handle following cases
+		 * 	1. When list is empty  - SYSO  List is empty
+		 * 	2. While head is matching - set head to null and  size--
+		 * 	3. When list has more than  one node
+		 * 		a) Node prev = head, curr = head.next
+		 * 		b) if curr.data == data,  Node temp = curr, prev.next = curr.next, curr = curr.next, temp.next =null
+		 * 		c) else, prev = prev.next, curr = curr.next
+		 */
+		
+		if(head == null) {
+			System.out.println("List is empty");
+			return;
+		}
+		
+		while(head.getData() == data) {
+			Node temp =  head;
+			head = temp.getNext();
+			temp.setNext(null);
+			size--;
+		}
+		
+		Node  prev = head;
+		Node curr =  head.getNext();
+		
+		while(curr!=null) {
+			if(curr.getData() == data) {
+				Node temp = curr;
+				prev.setNext(curr.getNext());
+				curr = curr.getNext();
+				temp.setNext(null);
+			}
+			else {
+				prev = prev.getNext();
+				curr = curr.getNext();
+			}
+		}
+	}
+	
+	public  void  appendAscend(int data) {
+		/**
+		 * Following  conditions to be handled
+		 * 	1. List is empty : create new node and set it to head
+		 * 	2. If head.data == data, Node temp = head; head = newNode; head.next = temp
+		 * 	3. List has one or more nodes
+		 * 		a) create new node
+		 * 		b) Node curr = head.next; while curr.getNext != null, if curr.data >= data, temp = curr.next; data.next = temp; curr.next = data
+		 */
+		Node node = new Node(data);
+		if(head == null) {
+			head = node;
+			size++;
+			return;
+		}
+		if(head.getData() == data) {
+			Node temp = head;
+			head = node;
+			head.setNext(temp);
+			size ++;
+			return;
+		}
+		Node prev = head;
+		Node curr = head.getNext();
+		while(curr.getNext()!=null) {
+			if(curr.getData() == data) {
+				Node  temp = curr.getNext();
+				node.setNext(temp);
+				curr.setNext(node);
+				size ++;
+				return;
+			} else if(data <curr.getData()) {
+				prev.setNext(node);
+				node.setNext(curr);
+				return;
+			}
+			else {
+				prev = prev.getNext();
+				curr = curr.getNext();
+			}
+		}
+		curr.setNext(node);
+	}
+	
+	
 }
