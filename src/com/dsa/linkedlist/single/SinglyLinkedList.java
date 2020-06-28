@@ -5,6 +5,12 @@ public class SinglyLinkedList {
 	private int size = 0;
 	private Node head;
 
+	public SinglyLinkedList() {
+		
+	}
+	public SinglyLinkedList(Node head) {
+		this.head = head;
+	}
 	public int getSize() {
 		return size;
 	}
@@ -21,7 +27,7 @@ public class SinglyLinkedList {
 		this.head = head;
 	}
 
-	public void append(int data) {
+	public Node append(int data) {
 		// Create a new node
 		Node n = new Node(data);
 		// Check if this is first node
@@ -29,7 +35,7 @@ public class SinglyLinkedList {
 			// Assign new node to head and increment the size
 			head = n;
 			size++;
-			return;
+			return n;
 		}
 
 		else {
@@ -42,7 +48,7 @@ public class SinglyLinkedList {
 			// Assign new node to the temp.next() and increment the size
 			temp.setNext(n);
 			size++;
-			return;
+			return n;
 		}
 	}
 
@@ -269,6 +275,24 @@ public class SinglyLinkedList {
 		}
 	}
 	
+	public void reverseRecursive() {
+		reverseRecursiveInternal(null,  head);
+	}
+	
+	private void reverseRecursiveInternal(Node  previous, Node current) {
+		if(current ==  null) {
+			head  = previous;
+			return;
+		}
+		else {
+			Node temp = current.getNext();
+			current.setNext(previous);
+			previous  = current;
+			current =  temp;
+			
+			reverseRecursiveInternal(previous, current);
+		}
+	}
 	// Runner Technique
 	public void changeSequenceFromMiddle() {
 		/**
@@ -352,6 +376,8 @@ public class SinglyLinkedList {
 		}
 	}
 	
+	
+	// Verify this logic
 	public  void  appendAscend(int data) {
 		/**
 		 * Following  conditions to be handled
@@ -376,6 +402,11 @@ public class SinglyLinkedList {
 		}
 		Node prev = head;
 		Node curr = head.getNext();
+		if(curr == null) {
+			curr  = node;
+			size++;
+			return;
+		}
 		while(curr.getNext()!=null) {
 			if(curr.getData() == data) {
 				Node  temp = curr.getNext();
@@ -386,6 +417,7 @@ public class SinglyLinkedList {
 			} else if(data <curr.getData()) {
 				prev.setNext(node);
 				node.setNext(curr);
+				size++;
 				return;
 			}
 			else {
@@ -394,6 +426,7 @@ public class SinglyLinkedList {
 			}
 		}
 		curr.setNext(node);
+		size++;
 	}
 	
 	
