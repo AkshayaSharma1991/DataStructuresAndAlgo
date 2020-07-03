@@ -20,7 +20,7 @@ public class StringAnagram {
 		System.out.println("Is anagram? " + isAnagram(s1, s2));
 	}
 	
-	static boolean isAnagram(String s1, String s2) {
+	public static boolean isAnagram(String s1, String s2) {
 		char[] c1 = s1.toCharArray();
 		char[] c2 = s2.toCharArray();
 		

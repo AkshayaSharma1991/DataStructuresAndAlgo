@@ -63,6 +63,19 @@ public class SinglyLinkedList {
 		System.out.println();
 	}
 
+	public int get(int index) {
+		if(index  == 0)
+			return  head.data;
+		else {
+			int i = 1;
+			Node n = head;
+			while(i<=index) {
+				n  = n.next;
+				i++;
+			}
+			return n.data;
+		}
+	}
 	public void delete(int data) {
 		/**
 		 * Handle corner cases 
