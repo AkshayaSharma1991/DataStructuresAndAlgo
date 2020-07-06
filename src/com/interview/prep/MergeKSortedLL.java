@@ -12,32 +12,27 @@ import com.dsa.linkedlist.single.SinglyLinkedList;
 public class MergeKSortedLL {
 
 	public static void main(String[] args) {
-		SinglyLinkedList[] arr1 = new SinglyLinkedList[3];
+		SinglyLinkedList[] arr1 = new SinglyLinkedList[2];
 		SinglyLinkedList sll1 = new SinglyLinkedList();
-		sll1.append(0);
+		sll1.append(1);
 		sll1.append(2);
-		sll1.append(6);
-		sll1.append(12);
-		sll1.append(34);
+		sll1.append(4);
 
 		arr1[0] = sll1;
 
 		SinglyLinkedList sll2 = new SinglyLinkedList();
 		sll2.append(1);
-		sll2.append(9);
-		sll2.append(20);
-		sll2.append(1000);
+		sll2.append(3);
+		sll2.append(4);
 
 		arr1[1] = sll2;
 
-		SinglyLinkedList sll3 = new SinglyLinkedList();
-		sll3.append(23);
-		sll3.append(34);
-		sll3.append(93);
-		sll3.append(2000);
-		sll3.append(3000);
-
-		arr1[2] = sll3;
+		/*
+		 * SinglyLinkedList sll3 = new SinglyLinkedList(); sll3.append(23);
+		 * sll3.append(34); sll3.append(93); sll3.append(2000); sll3.append(3000);
+		 * 
+		 * arr1[2] = sll3;
+		 */
 
 		System.out.println("Merged array is :");
 		mergeKSortedArrays(arr1);
