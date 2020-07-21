@@ -10,7 +10,7 @@ package com.dsa.genericLinkedList;
 public class GenericNode<T> {
 	
 	private T data;
-	private GenericNode<T> next;
+	public GenericNode<T> next;
 	/**
 	 * @return the data
 	 */

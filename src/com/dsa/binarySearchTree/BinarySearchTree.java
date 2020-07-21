@@ -48,7 +48,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
 			if(node.getData().equals(data))
 				return true;
 			else {
-				boolean right;
 				if(data.compareTo(node.getData()) > 1) {
 					return search(node.getRight(), data);
 				}

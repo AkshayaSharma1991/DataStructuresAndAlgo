@@ -6,6 +6,8 @@ package com.dsa.genericLinkedList;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+import com.dsa.linkedlist.single.Node;
+
 /**
  * @author akshayas
  *
@@ -113,7 +115,15 @@ public class GenericLinkedList<T> implements Iterable<T>{
 
 	}
 	
-	public void delete(T data) {
-		
+	public void traverse() {
+		// Create a temp node and assign head to the temp node
+		GenericNode temp = head;
+		// Iterate through all nodes till temp is not null
+		while (temp != null) {
+			System.out.print(" " + temp.getData());
+			temp = temp.getNext();
+		}
+		System.out.println();
 	}
+
 }

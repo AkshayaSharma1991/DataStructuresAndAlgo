@@ -9,8 +9,8 @@ package com.dsa.linkedlist.single;
  */
 public class NodeSum {
 	
-	int carry;
-	Node node;
+	public int carry;
+	public Node node;
 	
 	public  NodeSum(int carry, Node node) {
 		this.carry  =  carry;

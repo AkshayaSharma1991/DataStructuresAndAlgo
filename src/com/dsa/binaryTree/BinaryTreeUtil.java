@@ -3,6 +3,8 @@
  */
 package com.dsa.binaryTree;
 
+import com.dsa.queue.Queue;
+
 /**
  * @author akshayas
  *
@@ -98,6 +100,56 @@ public class BinaryTreeUtil {
 		System.out.println();
 		for (int i = 0; i <= pathLen; i++) {
 			System.out.print(" " + route[i]);
+		}
+	}
+
+	public static void printLeftSideView(BinaryTree tree) {
+		Queue<BinaryTreeNode> queue = new Queue<>();
+
+		BinaryTreeNode head = tree.getRoot();
+		if (head == null)
+			return;
+		queue.enqueue(head);
+
+		while (queue.getSize() > 0) {
+			int count = queue.getSize();
+			int temp = count;
+			while (count > 0) {
+				BinaryTreeNode n = queue.deQueue();
+				if (count == temp)
+					System.out.print(" " + n.data);
+				if (n.getLeft() != null)
+					queue.enqueue(n.getLeft());
+				if (n.getRight() != null)
+					queue.enqueue(n.getRight());
+				count--;
+			}
+
+		}
+	}
+
+	public static void printRightSideView(BinaryTree tree) {
+		Queue<BinaryTreeNode> queue = new Queue<>();
+
+		BinaryTreeNode head = tree.getRoot();
+		if (head == null)
+			return;
+		queue.enqueue(head);
+
+		while (queue.getSize() > 0) {
+			int count = queue.getSize();
+			while (count > 0) {
+				BinaryTreeNode n = queue.deQueue();
+
+				if (n.getLeft() != null)
+					queue.enqueue(n.getLeft());
+				if (n.getRight() != null)
+					queue.enqueue(n.getRight());
+				if (count == 1)
+					System.out.print(" " + n.data);
+				count--;
+			}
+
 		}
 	}
 }

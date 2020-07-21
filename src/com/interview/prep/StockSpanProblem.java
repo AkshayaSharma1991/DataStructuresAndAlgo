@@ -10,6 +10,14 @@ import com.dsa.genericLinkedList.Stack;
 
 /**
  * @author akshayas
+ * 
+ * Stock span approach:  Create a StockHolder.  for each price, 
+ * compare the price with stack.peek.value, if stack value is 
+ * greater than current price, add stack.peek.value to result array.  
+ * Else, pop stack till stack.peek.value becomes greater 
+ * than current  price, add stack.peek.value to result array.
+ * 
+ * Iterate through the result, print curr i - result[i]
  *
  */
 public class StockSpanProblem {

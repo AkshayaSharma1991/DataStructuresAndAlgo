@@ -26,6 +26,10 @@ public class BinaryTreeTest {
 		tree.insert(13);
 		tree.insert(14);
 		tree.insert(15);
+		BinaryTreeUtil.printLeftSideView(tree);
+		System.out.println();
+		BinaryTreeUtil.printRightSideView(tree);
+		System.out.println();
 		System.out.println("Level order traversal:  ");
 		tree.levelOrder();
 		

@@ -10,7 +10,7 @@ import com.dsa.queue.Queue;
  *
  */
 public class BinaryTree<T extends Comparable<T>> {
-	private BinaryTreeNode<T> root;
+	public BinaryTreeNode<T> root;
 	private int size;
 
 	/**

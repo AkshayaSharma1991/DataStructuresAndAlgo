@@ -38,13 +38,15 @@ public class Test {
 		l1.append(9);
 		l1.append(9);
 		l1.append(8);
+		l1.changeSequenceFromMiddle();
 		
 		SinglyLinkedList l2 = new SinglyLinkedList();
 		l2.append(7);
-		l2.append(9);
-		l2.append(9);
 		l2.append(8);
-		
+		l2.append(9);
+		l2.append(10);
+		l2.changeSequenceFromMiddle();
+
 		l1.traverse();
 		l2.traverse();
 		System.out.println("Intersection node: " + LinkedListUtil.getIntersectionNode(l1, l2));

@@ -10,7 +10,8 @@ package com.interview.prep;
 public class NumberOfRotationsSortedArray {
 
 	public static void main(String[] args) {
-		int[] a = {22,23,24,33,34,5};
+		int[] a = {20,23,23,25,26,2,3,4,5};
+
 		System.out.println("Rotations: " + numberOfRotations(a, a.length));
 	}
 
@@ -18,8 +19,10 @@ public class NumberOfRotationsSortedArray {
 		int low = 0, high = n - 1, index = -1;
 
 		while (low <= high) {
-			int mid = (low + high) / 2;
-			if (arr[mid] < arr[mid - 1]) {
+			int mid = low + (high - low) / 2;
+			int prev = (mid + n - 1) % n;
+			int next = (mid + 1) % n;
+			if (arr[mid] <= arr[prev] && arr[mid] <= arr[next]) {
 				index = mid;
 				break;
 			} else if (arr[mid] > arr[high]) {
