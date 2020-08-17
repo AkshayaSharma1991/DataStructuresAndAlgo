@@ -5,12 +5,14 @@ package com.gfg.arrays;
 
 /**
  * @author akshayas
+ * 
+ * https://practice.geeksforgeeks.org/problems/find-transition-point-1587115620/1
  *
  */
 public class FindTransitionPoint {
 
 	public static void main(String[] args) {
-		int arr[] = {1,1,1,1,1};
+		int arr[] = {0,1,1,1,1};
 		System.out.println(findTransitionPoint(arr, arr.length));
 	}
 

@@ -10,8 +10,8 @@ package com.gfg.dp.bottomUp;
 public class LongestCommonSubsequence {
 
 	public static void main(String[] args) {
-		String x = "AGGTAB";
-		String y = "GXTXAYB";
+		String x = "Bangalore";
+		String y = "Mangalore";
 		System.out.println(lcs(x.toCharArray(), y.toCharArray(), x.length(), y.length()));
 	}
 	

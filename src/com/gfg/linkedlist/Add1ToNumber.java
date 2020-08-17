@@ -32,7 +32,7 @@ public class Add1ToNumber {
 			n.setNext(ns.node);
 			return n;
 		}
-		return addHelper(head).node;
+		return ns.node;
 	}
 	
 	static NodeSum addHelper(Node n) {

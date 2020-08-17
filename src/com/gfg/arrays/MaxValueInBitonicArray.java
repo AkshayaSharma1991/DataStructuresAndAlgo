@@ -24,6 +24,7 @@ public class MaxValueInBitonicArray {
 
 			if (arr[mid] > arr[prev] && arr[mid] > arr[next]) {
 				max = arr[mid];
+				break;
 			}
 			if (arr[mid] < arr[next] && arr[mid] > arr[prev]) {
 				low = mid + 1;

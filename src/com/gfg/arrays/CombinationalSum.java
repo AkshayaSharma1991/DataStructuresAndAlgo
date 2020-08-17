@@ -9,6 +9,8 @@ import java.util.List;
 
 /**
  * @author akshayas
+ * 
+ * https://www.geeksforgeeks.org/combinational-sum/
  *
  */
 public class CombinationalSum {

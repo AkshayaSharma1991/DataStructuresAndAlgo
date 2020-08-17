@@ -19,7 +19,7 @@ public class SwapKthNodeFromEnd {
 		}
 
 		l1.traverse();
-		l1.setHead(swapKthNodeFromEnd(l1, 1));
+		l1.setHead(swapKthNodeFromEnd(l1, 6));
 		l1.traverse();
 	}
 

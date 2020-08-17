@@ -6,6 +6,7 @@ package com.gfg.arrays;
 /**
  * @author akshayas
  *
+ *https://www.geeksforgeeks.org/maximum-sum-lengths-non-overlapping-subarrays-k-max-element/
  */
 public class SumOfLengthsOfSubArray {
 

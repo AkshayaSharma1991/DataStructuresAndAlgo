@@ -41,14 +41,14 @@ public class TopNBuzzWords {
 		for (int i = 0; i < numToys; i++) {
 			result.put(toys.get(i), new ToyHolder(toys.get(i)));
 		}
-		int max_count = Integer.MIN_VALUE;
+		//int max_count = Integer.MIN_VALUE;
 		for (int i = 0; i < numQuotes; i++) {
 			for (int j = 0; j < numToys; j++) {
 				String[] sentence = quotes.get(i).split(" ");
 				int wordCount = wordCount(sentence, toys.get(j));
 				ToyHolder th = result.get(toys.get(j));
 				th.wordCount += wordCount;
-				max_count = Math.max(max_count, wordCount);
+				//max_count = Math.max(max_count, wordCount);
 				if (wordCount > 0)
 					th.quoteCount++;
 			}

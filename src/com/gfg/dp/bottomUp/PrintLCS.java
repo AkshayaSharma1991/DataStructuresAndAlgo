@@ -10,8 +10,8 @@ package com.gfg.dp.bottomUp;
 public class PrintLCS {
 
 	public static void main(String[] a) {
-		String x = "GeeksforGeeks";
-		String y = "GeeksQuiz";
+		String x = "Chennai";
+		String y = "Chengalpet";
 
 		System.out.println(lcs(x.toCharArray(), y.toCharArray(), x.length(), y.length()));
 	}
